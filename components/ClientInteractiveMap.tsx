@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { MoonIcon, SunIcon } from "lucide-react";
 import dynamic from "next/dynamic";
@@ -478,6 +477,12 @@ const ClientInteractiveMap: React.FC<ClientInteractiveMapProps> = ({
   // Removed: const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
 
   useEffect(() => {
+    if (selectedRegion) {
+      setIsModalOpen(true);
+    }
+  }, [selectedRegion]);
+
+  useEffect(() => {
     document.body.classList.toggle("dark-theme", isDarkTheme);
   }, [isDarkTheme]);
 
@@ -505,8 +510,8 @@ const ClientInteractiveMap: React.FC<ClientInteractiveMapProps> = ({
         isDarkTheme ? styles.darkTheme : styles.lightTheme
       }`}
     >
-      <div className="absolute top-4 left-4 w-32 h-32">
-        <svg viewBox="0 0 2535 437" className="w-full h-full">
+      <div className="absolute -top-5 left-4 flex items-center space-x-4 z-50">
+        <svg viewBox="0 0 2535 437" className="w-32 h-32">
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -532,6 +537,9 @@ const ClientInteractiveMap: React.FC<ClientInteractiveMapProps> = ({
             fill="currentColor"
           />
         </svg>
+        <span className={`${styles.textCustom} text-xl font-semibold ml-2`}>
+          Инфографика по делам ФАС
+        </span>
       </div>
       <button className={styles.themeToggle} onClick={toggleTheme}>
         {isDarkTheme ? <SunIcon /> : <MoonIcon />}

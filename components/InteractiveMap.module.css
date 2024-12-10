@@ -13,13 +13,13 @@
 }
 
 .lightTheme {
-  background-color: #F0F0F0;
-  color: #0F0F0F;
+  background-color: #f0f0f0;
+  color: #0f0f0f;
 }
 
 .darkTheme {
-  background-color: #0F0F0F;
-  color: #F0F0F0;
+  background-color: #0f0f0f;
+  color: #f0f0f0;
 }
 
 .map {
@@ -31,13 +31,12 @@
   overflow: hidden; /* Обрезка содержимого, выходящего за рамки */
 }
 
-
 .lightTheme .map path {
-  fill: #0F0F0F;
+  fill: #0f0f0f;
 }
 
 .darkTheme .map path {
-  fill: #F0F0F0;
+  fill: #f0f0f0;
 }
 
 .map path {
@@ -45,7 +44,7 @@
 }
 
 .map path:hover {
-  fill: #EC4741 !important;
+  fill: #ec4741 !important;
 }
 
 .themeToggle {
@@ -77,7 +76,7 @@
   width: 100vw;
   height: 100vh;
   font-size: 24px;
-  color: #0F0F0F;
+  color: #0f0f0f;
 }
 
 .clickable {
@@ -90,14 +89,14 @@
   object-fit: contain; /* Поддержка пропорционального масштабирования */
 }
 
-.selected {
-  fill: #4CAF50 !important;
+.textCustom {
+  color: inherit; /* Наследует цвет от родителя */
 }
+
 .lightTheme svg {
-  color: #0F0F0F;
+  color: #0f0f0f;
 }
 
 .darkTheme svg {
-  color: #F0F0F0;
+  color: #f0f0f0;
 }
-

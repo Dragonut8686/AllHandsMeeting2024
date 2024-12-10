@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import { Input } from "@/components/ui/input"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { useState, useEffect, useCallback } from 'react'
+import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { useState, useEffect, useCallback } from "react";
 
 interface SearchPanelProps {
   onRegionSelect: (regionCode: string) => void;
@@ -10,18 +10,31 @@ interface SearchPanelProps {
   regionsData: { [key: string]: { name: string } };
 }
 
-export const SearchPanel: React.FC<SearchPanelProps> = ({ onRegionSelect, selectedRegion, regionsData }) => {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [filteredRegions, setFilteredRegions] = useState<[string, { name: string }][]>([])
+export const SearchPanel: React.FC<SearchPanelProps> = ({
+  onRegionSelect,
+  selectedRegion,
+  regionsData,
+}) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredRegions, setFilteredRegions] = useState<
+    [string, { name: string }][]
+  >([]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchTerm(e.target.value);
   };
 
-  const handleRegionSelect = useCallback((regionCode: string) => {
-    onRegionSelect(regionCode);
-    setSearchTerm('');
-  }, [onRegionSelect]);
+  const handleRegionSelect = useCallback(
+    (regionCode: string) => {
+      onRegionSelect(regionCode);
+      setSearchTerm("");
+    },
+    [onRegionSelect]
+  );
+
+  const handleRegionClick = (regionId: string) => {
+    onRegionSelect(regionId); // Уведомляем родительский компонент
+  };
 
   useEffect(() => {
     if (regionsData) {
@@ -45,7 +58,11 @@ export const SearchPanel: React.FC<SearchPanelProps> = ({ onRegionSelect, select
               filteredRegions.map(([code, region]) => (
                 <li
                   key={code}
-                  className={`cursor-pointer hover:bg-accent hover:text-accent-foreground p-2 rounded-md transition-colors ${selectedRegion === code ? 'bg-accent text-accent-foreground' : ''}`}
+                  className={`cursor-pointer hover:bg-accent hover:text-accent-foreground p-2 rounded-md transition-colors ${
+                    selectedRegion === code
+                      ? "bg-accent text-accent-foreground"
+                      : ""
+                  }`}
                   onClick={() => handleRegionSelect(code)}
                 >
                   {region.name}
@@ -64,6 +81,5 @@ export const SearchPanel: React.FC<SearchPanelProps> = ({ onRegionSelect, select
         />
       </div>
     </div>
-  )
-}
-
+  );
+};

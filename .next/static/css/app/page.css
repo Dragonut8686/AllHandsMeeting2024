@@ -16,13 +16,13 @@
 }
 
 .InteractiveMap_lightTheme__oIFnW {
-  background-color: #F0F0F0;
-  color: #0F0F0F;
+  background-color: #f0f0f0;
+  color: #0f0f0f;
 }
 
 .InteractiveMap_darkTheme__vQdPA {
-  background-color: #0F0F0F;
-  color: #F0F0F0;
+  background-color: #0f0f0f;
+  color: #f0f0f0;
 }
 
 .InteractiveMap_map__8o5Nc {
@@ -34,13 +34,12 @@
   overflow: hidden; /* Обрезка содержимого, выходящего за рамки */
 }
 
-
 .InteractiveMap_lightTheme__oIFnW .InteractiveMap_map__8o5Nc path {
-  fill: #0F0F0F;
+  fill: #0f0f0f;
 }
 
 .InteractiveMap_darkTheme__vQdPA .InteractiveMap_map__8o5Nc path {
-  fill: #F0F0F0;
+  fill: #f0f0f0;
 }
 
 .InteractiveMap_map__8o5Nc path {
@@ -48,7 +47,7 @@
 }
 
 .InteractiveMap_map__8o5Nc path:hover {
-  fill: #EC4741 !important;
+  fill: #ec4741 !important;
 }
 
 .InteractiveMap_themeToggle__6exEb {
@@ -80,7 +79,7 @@
   width: 100vw;
   height: 100vh;
   font-size: 24px;
-  color: #0F0F0F;
+  color: #0f0f0f;
 }
 
 .InteractiveMap_clickable__JG_gC {
@@ -93,15 +92,15 @@
   object-fit: contain; /* Поддержка пропорционального масштабирования */
 }
 
-.InteractiveMap_selected__1x41X {
-  fill: #4CAF50 !important;
+.InteractiveMap_textCustom__Bvyrt {
+  color: inherit; /* Наследует цвет от родителя */
 }
+
 .InteractiveMap_lightTheme__oIFnW svg {
-  color: #0F0F0F;
+  color: #0f0f0f;
 }
 
 .InteractiveMap_darkTheme__vQdPA svg {
-  color: #F0F0F0;
+  color: #f0f0f0;
 }
-
 
