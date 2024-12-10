@@ -27,7 +27,7 @@ const InteractiveMap: React.FC = () => {
           onRegionSelect={handleRegionSelect}
         />
       </div>
-      <div className="absolute bottom-[15%] w-full max-w-md">
+      <div className="absolute bottom-[5%] w-full max-w-md">
         <SearchPanel 
           selectedRegion={selectedRegion} 
           onRegionSelect={handleRegionSelect} 
