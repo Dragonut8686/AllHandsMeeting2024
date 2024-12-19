@@ -31,8 +31,8 @@ export default function AnimatedText({
           baseFontSize = 120; // Фиксированный большой размер для заголовков
         } else {
           baseFontSize = text.length <= 200 ? 64 :
-                        text.length > 400 ? 32 :
-                        text.length > 300 ? 40 : 48;
+                        text.length > 400 ? 52 :
+                        text.length > 300 ? 64 : 64;
         }
       } else if (window.innerWidth >= 2560) { // 1440p
         if (isHeader) {
@@ -47,8 +47,8 @@ export default function AnimatedText({
           baseFontSize = 72; // Фиксированный большой размер для заголовков
         } else {
           baseFontSize = text.length <= 200 ? 48 :
-                        text.length > 400 ? 24 :
-                        text.length > 300 ? 28 : 32;
+                        text.length > 400 ? 36 :
+                        text.length > 300 ? 48 : 48;
         }
       } else if (window.innerWidth <= 640) { // Mobile
         baseFontSize = text.length <= 200 ? 22 :
