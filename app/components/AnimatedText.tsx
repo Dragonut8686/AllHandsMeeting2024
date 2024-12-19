@@ -25,17 +25,17 @@ export default function AnimatedText({
       let baseFontSize = 64;
 
       if (window.innerWidth >= 3840) { // 4K
+        baseFontSize = text.length <= 200 ? 160 :
+                      text.length > 400 ? 80 :
+                      text.length > 300 ? 96 : 120;
+      } else if (window.innerWidth >= 2560) { // 1440p
+        baseFontSize = text.length <= 200 ? 120 :
+                      text.length > 400 ? 64 :
+                      text.length > 300 ? 72 : 96;
+      } else if (window.innerWidth >= 1920) { // 1080p
         baseFontSize = text.length <= 200 ? 96 :
                       text.length > 400 ? 48 :
-                      text.length > 300 ? 56 : 64;
-      } else if (window.innerWidth >= 2560) { // 1440p
-        baseFontSize = text.length <= 200 ? 80 :
-                      text.length > 400 ? 40 :
-                      text.length > 300 ? 48 : 56;
-      } else if (window.innerWidth >= 1920) { // 1080p
-        baseFontSize = text.length <= 200 ? 64 :
-                      text.length > 400 ? 32 :
-                      text.length > 300 ? 40 : 48;
+                      text.length > 300 ? 56 : 72;
       } else if (window.innerWidth <= 640) { // Mobile
         baseFontSize = text.length <= 200 ? 22 :
                       text.length > 400 ? 12 :
