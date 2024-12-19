@@ -26,9 +26,9 @@ export default function AnimatedText({
 
       if (window.innerWidth <= 640) {
         // Mobile breakpoint
-        baseFontSize = text.length <= 200 ? 28 :
+        baseFontSize = text.length <= 200 ? 22 :
                       text.length > 400 ? 12 :
-                      text.length > 300 ? 14 : 16;
+                      text.length > 300 ? 16 : 16;
       } else {
         baseFontSize =
           text.length <= 200 ? 32 :
