@@ -24,12 +24,23 @@ export default function AnimatedText({
     const calculateFontSize = () => {
       let baseFontSize = 64;
 
-      if (window.innerWidth <= 640) {
-        // Mobile breakpoint
+      if (window.innerWidth >= 3840) { // 4K
+        baseFontSize = text.length <= 200 ? 96 :
+                      text.length > 400 ? 48 :
+                      text.length > 300 ? 56 : 64;
+      } else if (window.innerWidth >= 2560) { // 1440p
+        baseFontSize = text.length <= 200 ? 80 :
+                      text.length > 400 ? 40 :
+                      text.length > 300 ? 48 : 56;
+      } else if (window.innerWidth >= 1920) { // 1080p
+        baseFontSize = text.length <= 200 ? 64 :
+                      text.length > 400 ? 32 :
+                      text.length > 300 ? 40 : 48;
+      } else if (window.innerWidth <= 640) { // Mobile
         baseFontSize = text.length <= 200 ? 22 :
                       text.length > 400 ? 12 :
                       text.length > 300 ? 16 : 16;
-      } else {
+      } else { // Default desktop
         baseFontSize =
           text.length <= 200 ? 32 :
           text.length > 550 ? 14 :
@@ -37,7 +48,6 @@ export default function AnimatedText({
           text.length > 350 ? 20 : 22;
       }
 
-      // Изменяем размер шрифта только если он отличается от текущего
       setFontSize((prevFontSize) =>
         Math.abs(prevFontSize - baseFontSize) > 0.1
           ? baseFontSize

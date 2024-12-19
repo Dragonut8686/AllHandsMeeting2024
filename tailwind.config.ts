@@ -1,15 +1,20 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: ["class"], // Поддержка тёмной темы
+  darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}", // Пути для всех файлов с Tailwind-классами
-    "./components/**/*.{js,ts,jsx,tsx,mdx}", // Путь к папке components
-    "./app/**/*.{js,ts,jsx,tsx,mdx}", // Путь к папке app
-    "./*.{js,ts,jsx,tsx,mdx}", // Корневой путь
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
+      screens: {
+        '2xl': '1920px',
+        '3xl': '2560px',
+        '4xl': '3840px',
+      },
       fontSize: {
         'xs': '0.875rem',
         'sm': '1rem',
@@ -19,9 +24,13 @@ const config: Config = {
         '2xl': '1.875rem',
         '3xl': '2.25rem',
         '4xl': '3rem',
+        'display-sm': '3.5rem',
+        'display-base': '4rem',
+        'display-lg': '4.5rem',
+        'display-xl': '5rem',
       },
       colors: {
-        border: "hsl(var(--border))", // Добавлено для поддержки border-border
+        border: "hsl(var(--border))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -37,6 +46,11 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      spacing: {
+        '2xl': '2rem',
+        '3xl': '2.5rem',
+        '4xl': '3rem',
       },
       keyframes: {
         "fade-in": {
@@ -60,7 +74,7 @@ const config: Config = {
     },
   },
   plugins: [
-    require("tailwindcss-animate"), // Tailwind анимации
+    require("tailwindcss-animate"),
   ],
 };
 
