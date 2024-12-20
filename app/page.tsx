@@ -22,34 +22,18 @@ export default function Home() {
     const { data: newData, timestamp } = await fetchSheetData()
     if (newData.length > 0 && timestamp > lastUpdateTimestamp.current) {
       setUsers(prevUsers => {
-        const newUsers = newData.filter(newUser => 
-          !prevUsers.some(prevUser => 
-            prevUser.name === newUser.name && 
-            prevUser.leftPanelText === newUser.leftPanelText && 
-            prevUser.rightPanelText === newUser.rightPanelText
-          )
-        )
-
-        if (newUsers.length > 0) {
-          const updatedUsers = [
-            ...prevUsers.slice(0, currentUserIndex),
-            ...newUsers,
-            ...prevUsers.slice(currentUserIndex)
-          ]
-          setCurrentUserIndex(currentUserIndex)
-          return updatedUsers
-        }
-
-        return newData
+        const existingUserIds = new Set(prevUsers.map(user => user.name));
+        const newUsers = newData.filter(user => !existingUserIds.has(user.name));
+        return [...prevUsers, ...newUsers];
       })
       lastUpdateTimestamp.current = timestamp
     }
-  }, [currentUserIndex])
+  }, [])
 
   useEffect(() => {
     setMounted(true)
     fetchData()
-    const fetchIntervalId = setInterval(fetchData, 6000)
+    const fetchIntervalId = setInterval(fetchData, 8000) // Changed to 8 seconds
     return () => clearInterval(fetchIntervalId)
   }, [fetchData])
 
