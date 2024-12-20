@@ -50,7 +50,7 @@ export default function Home() {
     if (mounted && users.length > 0) {
       const displayTimer = setInterval(() => {
         setCurrentUserIndex((prevIndex) => (prevIndex + 1) % users.length)
-      }, 10000)
+      }, 15000)
 
       return () => clearInterval(displayTimer)
     }
