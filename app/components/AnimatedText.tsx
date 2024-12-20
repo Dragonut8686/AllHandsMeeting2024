@@ -31,8 +31,8 @@ export default function AnimatedText({
           baseFontSize = 120; // Фиксированный большой размер для заголовков
         } else {
           baseFontSize = text.length <= 200 ? 64 :
-                        text.length > 400 ? 46 :
-                        text.length > 300 ? 64 : 64;
+                        text.length > 400 ? 40 :
+                        text.length > 300 ? 52 : 52;
         }
       } else if (window.innerWidth >= 2560) { // 1440p
         if (isHeader) {
